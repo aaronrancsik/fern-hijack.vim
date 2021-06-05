@@ -4,6 +4,9 @@ endif
 let g:loaded_fern_hijack = 1
 
 function! s:hijack_directory() abort
+  if exists('g:restoreSessions') 
+    finish
+  endif
   let path = s:expand('%:p')
   if !isdirectory(path)
     return
